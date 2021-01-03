@@ -17,7 +17,7 @@ New mechanics
 - target locking
 - stamina
     - attacking and blocking drains stamina
-        - <favor attacks>
+        - favor attacks
     - losing all stamina staggers
 - sU, sL and sR stance
     - ie. UP, LEFT and RIGHT stance
@@ -98,17 +98,17 @@ REAP WHAT YOU SOW (R): aR, aR, aU*
 
 ## Abbreviations
 
-sU = UP stance
-sL = LEFT stance
-sR = RIGHT stance
+    sU = UP stance
+    sL = LEFT stance
+    sR = RIGHT stance
 
-aU = UP attack
-aL = LEFT attack
-aR = RIGHT attack
-aS = STAB attack
-aX = direction-less attack
+    aU = UP attack
+    aL = LEFT attack
+    aR = RIGHT attack
+    aS = STAB attack
+    aX = direction-less attack
 
-* = unblockable
+    * = unblockable
 
 
 ## Forge original README.txt
