@@ -1,3 +1,118 @@
+# Project Enhanced Combat
+
+## Mechanics
+
+Melee directions
+
+```
+     UP
+   
+    STAB
+   
+LEFT    RIGHT
+```
+
+New mechanics
+
+- target locking
+- stamina
+    - attacking and blocking drains stamina
+        - <favor attacks>
+    - losing all stamina staggers
+- sU, sL and sR stance
+    - ie. UP, LEFT and RIGHT stance
+- stance automatically blocks attack from that direction
+    - eg. UP stance (sU) blocks all attacks from up (aU)
+    - ofc enemy LEFT is your RIGHT and vice-versa
+- stance also automatically blocks directionless (vanilla) attacks (aX)
+- parry
+    - briefly after changing stances you parry attacks from the same direction
+    - successful parry forces enemy stance to no stance (sX) and immediate attack becomes riposte, which is unblockable (but parriable!)
+    - during parry window, you also block projectiles
+    - too fast parry is normal blocking
+    - too slow parry is considered no stance (you take damage)    
+- parry "race" attack multiplier?
+    - parry-riposte 1x, parry-parry-riposte 1.5x, parry-parry-parry...-riposte 2x
+- stabbing
+    - mF + M1 -> aS, ie. moving forward and attacking performs stab (if weapon allows, otherwise perform directional attack)
+    - only blockable by shield
+    - any perfectly timed stance change is parry
+- unblockable attacks
+    - can only be parried or dodged
+- stop attacks
+    - can be used to feign attacks
+- backstep
+
+Modifications to base game
+
+- delayed attacks
+- increased damage to compensate slower paced combat
+- new elite enemies with better combat AI
+
+
+## Vanilla Weapons
+
+### Sword
+
+Versatile and fast weapon
+
+a[ULRS]
+
+### Axe
+
+Fast heavy hitter
+
+a[ULR]
+
+HACK AWAY (U): aU,aU,aU*
+HACK AWAY (L): aL,aL,aL*
+HACK AWAY (R): aR,aR,aR*
+
+### Pickaxe
+
+Slow heavy hitter
+
+a[ULR]
+
+JUST MINING: aU, aU*
+
+### Spade
+
+Fast blunt weapon
+
+a[ULRS]
+
+### Hoe
+
+Wtf are you doing
+
+a[ULR]
+
+REAP WHAT YOU SOW (L): aL, aL, aU*
+REAP WHAT YOU SOW (R): aR, aR, aU* 
+
+
+## Tinker's Construct Weapons
+
+### 
+
+## Abbreviations
+
+sU = UP stance
+sL = LEFT stance
+sR = RIGHT stance
+
+aU = UP attack
+aL = LEFT attack
+aR = RIGHT attack
+aS = STAB attack
+aX = direction-less attack
+
+* = unblockable
+
+
+## Forge original README.txt
+```
 -------------------------------------------
 Source installation information for modders
 -------------------------------------------
@@ -51,3 +166,4 @@ https://www.youtube.com/watch?v=8VEdtQLuLO0&feature=youtu.be
 
 For more details update more often refer to the Forge Forums:
 http://www.minecraftforge.net/forum/index.php/topic,14048.0.html
+```
