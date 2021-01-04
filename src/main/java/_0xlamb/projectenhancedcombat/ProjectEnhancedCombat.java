@@ -45,7 +45,7 @@ public class ProjectEnhancedCombat
     public ProjectEnhancedCombat() {
         KEY_LOCK_ON = new KeyBinding(
                 "key." + Constants.PROJECTENHANCEDCOMBAT_ID + ".lock_on",
-                GLFW.GLFW_KEY_O,
+                GLFW.GLFW_KEY_TAB,
                 "key.categories." + Constants.PROJECTENHANCEDCOMBAT_ID);
         KEY_LOCK_ON.setKeyConflictContext(KeyConflictContext.IN_GAME);
         ClientRegistry.registerKeyBinding(KEY_LOCK_ON);
