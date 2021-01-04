@@ -2,6 +2,18 @@
 
 An attempt at making combat fun.
 
+## TODO
+
+Lock-on
+
+- break lock-on if target not visible for some time
+  - do not instantly break, for example rounding a tree
+  - invisibility?
+  - teleports? (enderman)
+- re-ungrab mouse after GUI closed
+- vertical tracking
+- test if you can lock-on to other entities like projectiles etc. 
+
 ## Info
 
 Melee directions
