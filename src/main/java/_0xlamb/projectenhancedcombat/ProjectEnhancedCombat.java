@@ -112,7 +112,7 @@ public class ProjectEnhancedCombat
     }
 
     @SubscribeEvent
-    public void onRenderGUI(final RenderGameOverlayEvent.Post e) {
+    public void onRenderGui(final RenderGameOverlayEvent.Post e) {
         if (!KEY_LOCK_ON.isInvalid() && KEY_LOCK_ON.isKeyDown()) {
             if (!isLockOnHandled) {
                 isLockOnHandled = true;
@@ -122,7 +122,6 @@ public class ProjectEnhancedCombat
 
                 if (isLockedOn) {
                     LOGGER.info("Lock-off");
-
                     lockOnTarget = Optional.empty();
                     mc.mouseHelper.grabMouse();
                 } else {
@@ -134,7 +133,6 @@ public class ProjectEnhancedCombat
                     }
 
                     LOGGER.info("Lock-on");
-
                     lockOnTarget = target;
                     // TODO: prevent opening menus during lock-on? or at least ungrab mouse again
                     mc.mouseHelper.ungrabMouse();
