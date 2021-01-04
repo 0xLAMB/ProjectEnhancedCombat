@@ -1,6 +1,8 @@
 # Project Enhanced Combat
 
-## Mechanics
+An attempt at making combat fun.
+
+## Info
 
 Melee directions
 
@@ -12,7 +14,7 @@ Melee directions
 LEFT    RIGHT
 ```
 
-New mechanics
+Core ideas for mechanics. Needs play testing.
 
 - target locking
 - stamina
@@ -20,7 +22,7 @@ New mechanics
         - favor attacks
     - losing all stamina staggers
 - sU, sL and sR stance
-    - ie. UP, LEFT and RIGHT stance
+    - i.e. UP, LEFT and RIGHT stance
 - stance automatically blocks attack from that direction
     - eg. UP stance (sU) blocks all attacks from up (aU)
     - ofc enemy LEFT is your RIGHT and vice-versa
@@ -50,53 +52,53 @@ Modifications to base game
 - new elite enemies with better combat AI
 
 
-## Vanilla Weapons
+### Vanilla Weapons
 
-### Sword
+#### Sword
 
 Versatile and fast weapon
 
 a[ULRS]
 
-### Axe
+#### Axe
 
 Fast heavy hitter
 
 a[ULR]
 
-HACK AWAY (U): aU,aU,aU*
-HACK AWAY (L): aL,aL,aL*
-HACK AWAY (R): aR,aR,aR*
+- HACK AWAY (U): aU,aU,aU*
+- HACK AWAY (L): aL,aL,aL*
+- HACK AWAY (R): aR,aR,aR*
 
-### Pickaxe
+#### Pickaxe
 
 Slow heavy hitter
 
 a[ULR]
 
-JUST MINING: aU, aU*
+- JUST MINING: aU, aU*
 
-### Spade
+#### Spade
 
 Fast blunt weapon
 
 a[ULRS]
 
-### Hoe
+#### Hoe
 
 Wtf are you doing
 
 a[ULR]
 
-REAP WHAT YOU SOW (L): aL, aL, aU*
-REAP WHAT YOU SOW (R): aR, aR, aU* 
+- REAP WHAT YOU SOW (L): aL, aL, aU*
+- REAP WHAT YOU SOW (R): aR, aR, aU* 
 
 
-## Tinker's Construct Weapons
+### Tinker's Construct Weapons
 
-### 
+`TODO`
 
-## Abbreviations
+### Abbreviations
 
     sU = UP stance
     sL = LEFT stance
@@ -111,7 +113,10 @@ REAP WHAT YOU SOW (R): aR, aR, aU*
     * = unblockable
 
 
-## Forge original README.txt
+## Development
+
+Forge's original README.txt
+
 ```
 -------------------------------------------
 Source installation information for modders
@@ -167,3 +172,9 @@ https://www.youtube.com/watch?v=8VEdtQLuLO0&feature=youtu.be
 For more details update more often refer to the Forge Forums:
 http://www.minecraftforge.net/forum/index.php/topic,14048.0.html
 ```
+
+Documentation, guidelines and useful stuff
+
+- <https://mcforge.readthedocs.io/en/1.16.x/>
+- <https://forge.yue.moe/javadoc/1.16.3/>
+- <https://forums.minecraftforge.net/topic/61757-common-issues-and-recommendations/>
