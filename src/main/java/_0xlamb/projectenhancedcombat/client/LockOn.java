@@ -21,31 +21,30 @@ import org.lwjgl.glfw.GLFW;
 
 @Mod.EventBusSubscriber(modid = ProjectEnhancedCombat.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class LockOn {
-    // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
 
-    private final KeyBinding KEY_LOCK_ON;
+    private final KeyBinding keyLockOn;
 
     private boolean isKeyLockOnHandled = false;
     private Entity lockOnTarget = null;
 
     public LockOn() {
-        KEY_LOCK_ON = new KeyBinding(
+        keyLockOn = new KeyBinding(
                 "key." + ProjectEnhancedCombat.MOD_ID + ".lock_on",
                 GLFW.GLFW_KEY_TAB,
                 "key.categories." + ProjectEnhancedCombat.MOD_ID);
-        KEY_LOCK_ON.setKeyConflictContext(KeyConflictContext.IN_GAME);
+        keyLockOn.setKeyConflictContext(KeyConflictContext.IN_GAME);
     }
 
     public void setup(final FMLClientSetupEvent event) {
-        ClientRegistry.registerKeyBinding(KEY_LOCK_ON);
+        ClientRegistry.registerKeyBinding(keyLockOn);
 
         MinecraftForge.EVENT_BUS.addListener(this::onRender);
     }
 
     private void onRender(final TickEvent.RenderTickEvent event) {
         // trigger once on key down
-        if (!KEY_LOCK_ON.isInvalid() && KEY_LOCK_ON.isKeyDown()) {
+        if (!keyLockOn.isInvalid() && keyLockOn.isKeyDown()) {
             if (!isKeyLockOnHandled) {
                 isKeyLockOnHandled = true;
                 handleKeyLockOn();
@@ -58,10 +57,10 @@ public class LockOn {
         if (lockOnTarget != null) {
             final Minecraft mc = Minecraft.getInstance();
 
+            // save and quit makes player null
             if (mc.player != null) {
                 aim(mc.player, lockOnTarget, event.renderTickTime);
             } else {
-                // exited from game
                 lockOnTarget = null;
             }
         }
@@ -72,28 +71,21 @@ public class LockOn {
         final Minecraft mc = Minecraft.getInstance();
 
         if (lockOnTarget == null) {
-            lockOnTarget = raytrace(mc);
-
-            if (lockOnTarget != null) {
+            final RayTraceResult result = mc.objectMouseOver;
+            if (result instanceof EntityRayTraceResult) {
                 LOGGER.info("Lock-on");
+
+                final EntityRayTraceResult entityResult = (EntityRayTraceResult)result;
+                lockOnTarget = entityResult.getEntity();
                 mc.mouseHelper.ungrabMouse();
             } else {
                 LOGGER.info("No target to lock-on");
             }
         } else {
             LOGGER.info("Lock-off");
+
             lockOnTarget = null;
             mc.mouseHelper.grabMouse();
-        }
-    }
-
-    private static Entity raytrace(Minecraft mc) {
-        final RayTraceResult result = mc.objectMouseOver;
-        if (result instanceof EntityRayTraceResult) {
-            final EntityRayTraceResult entityResult = (EntityRayTraceResult)result;
-            return entityResult.getEntity();
-        } else {
-            return null;
         }
     }
 
