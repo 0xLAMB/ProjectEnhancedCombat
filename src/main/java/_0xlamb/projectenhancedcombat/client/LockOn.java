@@ -1,7 +1,9 @@
 package _0xlamb.projectenhancedcombat.client;
 
 import _0xlamb.projectenhancedcombat.ProjectEnhancedCombat;
+import net.java.games.input.Mouse;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.MouseHelper;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.EntityRayTraceResult;
@@ -9,6 +11,8 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.GuiOpenEvent;
+import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.client.settings.KeyConflictContext;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
@@ -39,7 +43,28 @@ public class LockOn {
     public void setup(final FMLClientSetupEvent event) {
         ClientRegistry.registerKeyBinding(keyLockOn);
 
+        MinecraftForge.EVENT_BUS.addListener(this::onGuiOpen);
+        MinecraftForge.EVENT_BUS.addListener(this::onRawMouse);
         MinecraftForge.EVENT_BUS.addListener(this::onRender);
+    }
+
+    private void onGuiOpen(final GuiOpenEvent event) {
+        lockOnTarget = null;
+    }
+
+    private void onRawMouse(final InputEvent.RawMouseEvent event) {
+        final Minecraft mc = Minecraft.getInstance();
+
+        // menu, inventory etc. open
+        // if (mc.currentScreen != null) return;
+
+        if (lockOnTarget != null) {
+            event.setCanceled(true);
+            final double x = mc.mouseHelper.getMouseX();
+            final double y = mc.mouseHelper.getMouseX();
+
+            LOGGER.info("x: " + x + ", y: " + y);
+        }
     }
 
     private void onRender(final TickEvent.RenderTickEvent event) {
